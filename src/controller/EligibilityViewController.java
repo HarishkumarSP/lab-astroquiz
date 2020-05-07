@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
-import utility.BasicEligibility;
 import utility.EligibiltyCheck;
 
 @WebServlet(urlPatterns= {"/eligible"})
@@ -29,7 +28,7 @@ public class EligibilityViewController extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response, String points) throws ServletException, IOException {
 
 		String name=request.getParameter("name");
 		String number=request.getParameter("Number");
@@ -37,6 +36,11 @@ public class EligibilityViewController extends HttpServlet {
 		int height=Integer.parseInt(request.getParameter("height"));
 		int weight=Integer.parseInt(request.getParameter("weight"));
 		String country=request.getParameter("country");
+		
+
+		EligibiltyCheck obj2=new EligibiltyCheck();
+
+		boolean spaceEligible=obj2.checkQuizAnswer(points);
 		
 	
 		User user = new User(name,number,age,height,weight,country);

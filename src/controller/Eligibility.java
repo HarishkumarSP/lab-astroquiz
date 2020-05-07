@@ -11,13 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import utility.EligibiltyCheck;
 
+
 @WebServlet(urlPatterns= {"/eligiblemain"})
 public class Eligibility extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response, String points) throws ServletException, IOException {
 
-	String points=request.getParameter("points");
+
+		EligibiltyCheck obj1=new EligibiltyCheck();
+
+		boolean spaceEligible=obj1.checkQuizAnswer(points);
+		
+		
+	String points1=request.getParameter("points");
+	
 	
 	if(false)
 	{
