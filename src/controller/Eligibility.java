@@ -24,13 +24,13 @@ public class Eligibility extends HttpServlet {
 		boolean spaceEligible=obj1.checkQuizAnswer(points);
 		
 		
-	String points1=request.getParameter("points");
+	String points1 =request.getParameter("points");
 	
 	
 	if(false)
 	{
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/success.html");
-		rd.forward(request, response);	
+		rd.forward(request, response);
 	}
 	else
 	{
